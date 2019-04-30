@@ -6,7 +6,6 @@
     "url": "https://github.com/grunjol/bestlibre-addons/tree/master/mopidy",
     "startup": "application",
     "boot": "auto",
-    "image": "grunjol/{arch}-mopidy",
     "audio": true,
     "options": {"local_scan": true,
 	        "options": []},
