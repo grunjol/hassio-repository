@@ -52,5 +52,6 @@
     "ssl": "bool",
     "certfile": "str",
     "keyfile": "str"
-  }
+  },
+  "image": "grunjol/{arch}-motioneye"
 }
