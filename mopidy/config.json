@@ -3,7 +3,7 @@
     "version": "0.2.7",
     "slug": "mopidy",
     "description": "mopidy music server",
-    "url": "https://github.com/grunjol/bestlibre-addons/tree/master/mopidy",
+    "url": "https://github.com/bestlibre/hassio-addons/tree/master/mopidy",
     "startup": "application",
     "boot": "auto",
     "audio": true,

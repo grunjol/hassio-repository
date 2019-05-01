@@ -1,0 +1,19 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Community Hass.io Add-ons: motionEye
+# Runs the motionEye
+# ==============================================================================
+declare -a options
+
+
+bashio::log.info "Starting motionEye..."
+
+options+=(-c /data/motioneye/motioneye.conf)
+
+# Enable debug mode
+if bashio::debug; then
+    options+=(-d)
+fi
+
+# Run the motionEye
+exec meyectl startserver "${options[@]}"
