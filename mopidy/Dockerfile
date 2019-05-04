@@ -30,7 +30,7 @@ RUN set -ex \
     gstreamer1.0-tools \
  && apt-get update \
  && curl -L https://bootstrap.pypa.io/get-pip.py | python - \
- && pip install -U Mopidy
+ && pip install -U Mopidy \
  && pip Mopidy-Spotify Mopidy-Local-SQLite \
  && pip install -U six oauth2client pyasn1 \
  && pip install \
