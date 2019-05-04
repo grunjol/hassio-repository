@@ -22,13 +22,16 @@ RUN set -ex \
 	jq \
 	python-crypto \
 	python-dev \
- && curl -L https://apt.mopidy.com/mopidy.gpg -o /tmp/mopidy.gpg \
- && curl -L https://apt.mopidy.com/mopidy.list -o /etc/apt/sources.list.d/mopidy.list \
- && apt-key add /tmp/mopidy.gpg \
+	python-gst-1.0 \
+    gir1.2-gstreamer-1.0 \
+    gir1.2-gst-plugins-base-1.0 \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-ugly \
+    gstreamer1.0-tools \
  && apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-        jq mopidy mopidy-spotify mopidy-local-sqlite \
  && curl -L https://bootstrap.pypa.io/get-pip.py | python - \
+ && pip install -U Mopidy
+ && pip Mopidy-Spotify Mopidy-Local-SQLite \
  && pip install -U six oauth2client pyasn1 \
  && pip install \
 	Mopidy-Moped \
