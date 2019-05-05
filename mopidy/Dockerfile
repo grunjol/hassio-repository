@@ -40,7 +40,7 @@ RUN \
     \
     && curl https://bootstrap.pypa.io/get-pip.py | python \
     \
-    && pip install -U modipy \
+    && pip install -U mopidy \
     \
     && pip install mopidy-alsamixer \
     \
