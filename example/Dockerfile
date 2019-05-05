@@ -1,4 +1,4 @@
-ARG BUILD_FROM=hassioaddons/base:3.1.0
+ARG BUILD_FROM=hassioaddons/ubuntu-base:3.1.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -6,9 +6,9 @@ FROM ${BUILD_FROM}
 COPY rootfs /
 
 # Setup base
-RUN apk add --no-cache \
-    coreutils=8.30-r0 \
-    wget=1.20.3-r0
+RUN apt-get install -y --no-install-recommends \
+    coreutils \
+    wget
 
 # Scrip to run after startup
 CMD ["/usr/bin/run.sh"]
