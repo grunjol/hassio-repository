@@ -6,9 +6,7 @@ FROM ${BUILD_FROM}
 COPY rootfs /
 
 # Setup base
-RUN apt-get install -y --no-install-recommends \
-    coreutils \
-    wget
+RUN ls -l
 
 # Scrip to run after startup
 CMD ["/usr/bin/run.sh"]
