@@ -1,9 +1,9 @@
 {
     "build_from": {
-	"armhf" : "bestlibre/armhf-debian-base:stretch",
-    "armv7" : "bestlibre/armhf-debian-base:stretch",
-	"aarch64": "bestlibre/aarch64-debian-base:stretch",
-	"amd64" : "amd64/debian:stretch",
-	"i386" : "i386/debian:stretch"
-    }
+    	"aarch64": "hassioaddons/ubuntu-base-aarch64:3.1.0",
+        "amd64": "hassioaddons/ubuntu-base-amd64:3.1.0",
+        "armv7": "hassioaddons/ubuntu-base-armv7:3.1.0",
+        "i386": "hassioaddons/ubuntu-base-i386:3.1.0"
+    },
+    "args": {}
 }
