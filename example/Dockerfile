@@ -2,11 +2,16 @@ ARG BUILD_FROM=hassioaddons/ubuntu-base:3.1.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
+# Set shell
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Copy root filesystem
 COPY rootfs /
 
 # Setup base
-RUN apt-get install -y --no-install-recommends \
+RUN apt-get update \
+    \
+    && apt-get install -y --no-install-recommends \
     wget
 
 # Scrip to run after startup
