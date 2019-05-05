@@ -40,11 +40,11 @@ RUN \
     \
     && curl https://bootstrap.pypa.io/get-pip.py | python \
     \
-    && pip install -U modidy \
+    && pip install -U modipy \
     \
-    && pip install -U mopidy-alsamixer \
+    && pip install mopidy-alsamixer \
     \
-    && pip install -U mopidy-local-sqlite \
+    && pip install mopidy-local-sqlite \
     \
     && pip install --no-cache-dir -r /tmp/requirements.txt \
     \
