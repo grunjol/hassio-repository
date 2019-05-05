@@ -6,7 +6,8 @@ FROM ${BUILD_FROM}
 COPY rootfs /
 
 # Setup base
-RUN ls -l
+RUN apt-get install -y --no-install-recommends \
+    wget
 
 # Scrip to run after startup
 CMD ["/usr/bin/run.sh"]
