@@ -18,6 +18,7 @@
   "hassio_api": true,
   "hassio_role": "default",
   "audio": true,
+  "host_network": true,
   "options": {
     "username": "",
     "password": "",
