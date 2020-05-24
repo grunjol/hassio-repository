@@ -16,16 +16,16 @@ RUN \
         dirmngr=2.2.4-1ubuntu1.2 \
         gpg-agent=2.2.4-1ubuntu1.2 \
         gpg=2.2.4-1ubuntu1.2 \
-        libnginx-mod-http-lua=1.14.0-0ubuntu1.2 \
+        libnginx-mod-http-lua=1.14.0-0ubuntu1.7 \
         luarocks=2.4.2+dfsg-1 \
-        nginx=1.14.0-0ubuntu1.2 \
+        nginx=1.14.0-0ubuntu1.7 \
         build-essential=12.4ubuntu1 \
         gstreamer1.0-alsa=1.14.1-1ubuntu1~ubuntu18.04.2 \
-        gstreamer1.0-plugins-bad=1.14.1-1ubuntu1~ubuntu18.04.1 \
-        gstreamer1.0-pulseaudio=1.14.1-1ubuntu1~ubuntu18.04.1 \
+        gstreamer1.0-plugins-bad \
+        gstreamer1.0-pulseaudio=1.14.0-1ubuntu1 \
         libffi-dev=3.2.1-8 \
-        libxml2-dev=2.9.4+dfsg1-6.1ubuntu1.2 \
-        libxslt1-dev=1.1.29-5ubuntu0.1 \
+        libxml2-dev=2.9.4+dfsg1-6.1ubuntu1.3 \
+        libxslt1-dev=1.1.29-5ubuntu0.2 \
         python-dev=2.7.15~rc1-1 \
         zlib1g-dev=1:1.2.11.dfsg-0ubuntu2 \
         python-gst-1.0 \
