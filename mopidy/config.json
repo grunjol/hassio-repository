@@ -51,7 +51,7 @@
         "value": "str"
       }
     ],
-    "leave_front_door_open": "bool?",
-    "image": "grunjol/mopidy-{arch}"
-  }
+    "leave_front_door_open": "bool?"
+  },
+  "image": "grunjol/mopidy-{arch}"
 }
