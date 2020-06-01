@@ -21,6 +21,7 @@
   "auth_api": true,
   "hassio_role": "default",
   "audio": true,
+  "webui" : "http://[HOST]:[PORT:3000]/",
   "ports": {
     "6600/tcp": 6600,
     "5555/udp": 5555,
