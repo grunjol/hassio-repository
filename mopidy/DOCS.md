@@ -44,7 +44,7 @@ settings:
   - name: file/enabled
     value: 'true'
   - name: file/media_dirs
-    value: /share/mopidy/media
+    value: /media
 system_packages: []
 python_packages: []
 ```

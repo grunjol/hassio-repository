@@ -11,7 +11,7 @@
   "hassio_api": true,
   "hassio_role": "default",
   "webui" : "http://[HOST]:[PORT:3000]/",
-  "map": ["config:rw", "share:rw", "ssl"],
+  "map": ["config:rw", "media:rw", "share:rw", "ssl"],
   "options": {
     "log_level": "info"
   },
