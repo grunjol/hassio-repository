@@ -1,20 +1,14 @@
 {
   "name": "Mopidy",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "slug": "mopidy",
   "panel_icon": "mdi:music-circle",
   "description": "Mopidy is an extensible music server",
   "url": "https://github.com/hassio-addons/addon-mopidy",
-  "webui": "http://[HOST]:[PORT:80]/iris/",
   "ingress": true,
-  "ingress_port": 1337,
   "ingress_entry": "iris/",
-  "startup": "application",
   "arch": ["amd64", "armv7", "i386"],
-  "boot": "auto",
-  "hassio_api": true,
   "auth_api": true,
-  "hassio_role": "default",
   "audio": true,
   "ports": {
     "6600/tcp": 6600,
@@ -34,8 +28,12 @@
   },
   "schema": {
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)?",
-    "system_packages": ["str"],
-    "python_packages": ["str"],
+    "system_packages": [
+      "str"
+    ],
+    "python_packages": [
+      "str"
+    ],
     "settings": [
       {
         "name": "str",

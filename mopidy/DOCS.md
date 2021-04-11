@@ -40,11 +40,11 @@ settings:
   - name: gmusic/deviceid
     value: yodeviceid
   - name: youtube/enabled
-    value: 'true'
+    value: "true"
   - name: file/enabled
-    value: 'true'
+    value: "true"
   - name: file/media_dirs
-    value: /media
+    value: /share/mopidy/media
 system_packages: []
 python_packages: []
 ```
@@ -64,8 +64,8 @@ documentation:
 
 ### Option: `system_packages`
 
-Allows you to specify additional [Debian packages][debian-packages] to be
-installed in your shell environment (e.g., Python, PHP, Go).
+Allows you to specify additional [Debian packages][debian-packages] to
+be installed in your shell environment (e.g., Python, PHP, Go).
 
 **Note**: _Adding many packages will result in a longer start-up
 time for the add-on._
@@ -81,7 +81,7 @@ for the add-on._
 ### Option: `leave_front_door_open`
 
 Adding this option to the add-on configuration allows you to disable
-authentication on the VSCode by setting it to `true`.
+authentication on the Mopidy by setting it to `true`.
 
 **Note**: _We STRONGLY suggest, not to use this, even if this add-on is
 only exposed to your internal network. USE AT YOUR OWN RISK!_
@@ -89,16 +89,15 @@ only exposed to your internal network. USE AT YOUR OWN RISK!_
 ## Changelog & Releases
 
 This repository keeps a change log using [GitHub's releases][releases]
-functionality. The format of the log is based on
-[Keep a Changelog][keepchangelog].
+functionality.
 
 Releases are based on [Semantic Versioning][semver], and use the format
-of ``MAJOR.MINOR.PATCH``. In a nutshell, the version will be incremented
+of `MAJOR.MINOR.PATCH`. In a nutshell, the version will be incremented
 based on the following:
 
-- ``MAJOR``: Incompatible or major changes.
-- ``MINOR``: Backwards-compatible new features and enhancements.
-- ``PATCH``: Backwards-compatible bugfixes and package updates.
+- `MAJOR`: Incompatible or major changes.
+- `MINOR`: Backwards-compatible new features and enhancements.
+- `PATCH`: Backwards-compatible bugfixes and package updates.
 
 ## Support
 
@@ -127,7 +126,7 @@ check [the contributor's page][contributors].
 
 MIT License
 
-Copyright (c) 2019-2020 Bram Mittendorff, Franck Nijhof, Robbert Müller
+Copyright (c) 2019-2021 Bram Mittendorff, Franck Nijhof, Robbert Müller
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -155,7 +154,6 @@ SOFTWARE.
 [forum]: https://community.home-assistant.io/?u=frenck
 [frenck]: https://github.com/frenck
 [issue]: https://github.com/hassio-addons/addon-mopidy/issues
-[keepchangelog]: http://keepachangelog.com/en/1.0.0/
 [mjrider]: https://github.com/mjrider
 [python-packages]: https://pypi.org
 [reddit]: https://reddit.com/r/homeassistant
