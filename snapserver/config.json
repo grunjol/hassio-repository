@@ -67,7 +67,7 @@
   },
   "ports_description": {
     "1704/tcp": "Snapcast Server",
-    "1705/udp": "Snapcast Control",
+    "1705/tcp": "Snapcast Control",
     "1780/tcp": "SnapWeb interface"
   },
   "arch": [
