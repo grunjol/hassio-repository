@@ -1,6 +1,6 @@
 {
   "name": "Snapcast Server",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "slug": "snapserver",
   "description": "Snapcast server with librespot support",
   "url": "https://github.com/grunjol/addon-snapserver",
@@ -28,7 +28,7 @@
       "enabled": "true"
     },
     "logging": {
-      "filter": "*:debug"
+      "filter": "*:info"
     },
     "server": {
       "threads": "-1",
