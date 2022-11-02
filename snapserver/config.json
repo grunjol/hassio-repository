@@ -7,6 +7,7 @@
   "startup": "system",
   "boot": "auto",
   "host_network": true,
+  "init": false,
   "map": [
     "share:rw"
   ],
