@@ -24,7 +24,7 @@
     },
     "http": {
       "enabled": "true",
-      "doc_root": " "
+      "doc_root": "/usr/share/snapweb"
     },
     "tcp": {
       "enabled": "true"
