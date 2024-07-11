@@ -1,6 +1,6 @@
 {
   "name": "rTorrent and Flood",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "slug": "rtorrent-flood",
   "description": "rTorrent and Flood web UI add-on for Hass.io",
   "url": "https://github.com/grunjol/addon-rtorrent-flood",
