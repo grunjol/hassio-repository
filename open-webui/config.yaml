@@ -1,6 +1,5 @@
 name: "Open WebUI"
 description: "Open WebUI is an extensible, self-hosted interface for AI that adapts to your workflow, all while operating entirely offline."
-# renovate: datasource=github-releases depName=open-webui/open-webui
 version: "0.6.30"
 slug: "open-webui"
 arch:
@@ -22,3 +21,4 @@ schema:
       value: str
 init: false
 startup: application
+image: "grunjol/open-webui-{arch}"
