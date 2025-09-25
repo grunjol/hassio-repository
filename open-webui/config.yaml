@@ -6,7 +6,7 @@ arch:
   - amd64
 url: https://openwebui.com
 map:
-  - type: addons
+  - type: addon_config
     read_only: False
     path: /app/backend/data
 legacy: True
