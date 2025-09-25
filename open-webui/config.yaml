@@ -9,6 +9,8 @@ map:
   - type: addon_config
     read_only: False
     path: /app/backend/data
+  - type: data
+    path: /root/.ollama
 legacy: True
 host_network: True
 options:
