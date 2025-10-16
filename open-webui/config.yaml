@@ -15,10 +15,12 @@ legacy: True
 ports:
   8084/tcp: 8084
   11434/tcp: 11143
+  8087/tcp: 8087
 
 ports_description:
   8084/tcp:  Open WebUI port
   11434/tcp: Ollama port
+  8087/tcp: OpenAPI port
 options:
   port: 8084
   env_vars: []
