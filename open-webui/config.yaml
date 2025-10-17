@@ -12,7 +12,6 @@ map:
   - type: data
     path: /root/.ollama
 legacy: True
-host_network: True
 ports:
   8084/tcp: 8084
   11434/tcp: 11143
