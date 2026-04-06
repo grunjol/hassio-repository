@@ -1,10 +1,11 @@
 name: "Open WebUI"
-description: "Open WebUI is an extensible, self-hosted interface for AI that adapts to your workflow, all while operating entirely offline."
-version: "0.6.41"
+version: "0.8.12"
 slug: "open-webui"
+description: "Open WebUI is an extensible, self-hosted interface for AI that adapts to your workflow, all while operating entirely offline."
+url: https://openwebui.com
 arch:
   - amd64
-url: https://openwebui.com
+init: false
 map:
   - type: addon_config
     read_only: False
@@ -12,6 +13,7 @@ map:
   - type: data
     path: /root/.ollama
 legacy: True
+
 ports:
   8084/tcp: 8084
   11434/tcp: 11143
@@ -28,6 +30,5 @@ schema:
   env_vars:
     - name: match(^[A-Z0-9_]+$)
       value: str
-init: false
 startup: application
-image: "grunjol/open-webui-{arch}"
+image: ghcr.io/grunjol/addon-open-webui
