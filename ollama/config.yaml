@@ -24,7 +24,6 @@ ports:
 ports_description:
   11434/tcp: "The Ollama API Port, not used for End-User Access"
 options:
-  OLLAMA_MODELS: /data/ollama
   OLLAMA_KEEP_ALIVE: -1
   OLLAMA_KV_CACHE_TYPE: q8_0
   OLLAMA_FLASH_ATTENTION: 0
@@ -35,7 +34,6 @@ options:
 schema:
   OLLAMA_CONTEXT_LENGTH: int?
   OLLAMA_FLASH_ATTENTION: int
-  OLLAMA_MODELS: list(/config/ollama|/share/ollama|/data/ollama)
   OLLAMA_KEEP_ALIVE: int
   OLLAMA_KV_CACHE_TYPE: list(f16|q8_0|q4_0)
   OLLAMA_MAX_LOADED_MODELS: int
