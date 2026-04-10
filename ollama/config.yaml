@@ -53,7 +53,7 @@ schema:
   HTTPS_PROXY: str?
   gpus: str
 backup_exclude:
-  - "ollama/**"
+  - "models/**"
 devices:
   - /dev/dri/renderD128
   - /dev/apex_0
