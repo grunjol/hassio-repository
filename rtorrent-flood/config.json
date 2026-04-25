@@ -1,18 +1,17 @@
 {
   "name": "rTorrent and Flood",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "slug": "rtorrent-flood",
   "description": "rTorrent and Flood web UI add-on for Hass.io",
   "url": "https://github.com/grunjol/addon-rtorrent-flood",
-  "startup": "application",
   "init": false,
   "arch": ["amd64"],
-  "boot": "auto",
   "hassio_api": true,
-  "hassio_role": "default",
-  "webui" : "http://[HOST]:[PORT:3000]/",
-  "map": ["config:rw", "media:rw", "share:rw", "ssl"],
+  "map": ["config:rw", "share:rw", "media:rw", "ssl"],
   "options": {
+    "download_dir": "/media/Downloads",
+    "max_upload_speed": 0,
+    "max_download_speed": 0,
     "log_level": "info"
   },
   "ports": {
@@ -26,7 +25,11 @@
     "49184/udp": "rTorrent UDP peers"
   },
   "schema": {
+    "download_dir": "str",
+    "max_upload_speed": "int",
+    "max_download_speed": "int",
     "log_level": "list(trace|debug|info|notice|warning|error|fatal)"
   },
-  "image": "grunjol/rtorrent-flood-{arch}"
+  "webui" : "http://[HOST]:[PORT:3000]/",
+  "image": "ghcr.io/grunjol/addon-rtorrent-flood"
 }
