@@ -1,0 +1,26 @@
+configuration:
+  couchdb_uri:
+    name: CouchDB URI
+    description: Full URL to your CouchDB instance (e.g. http://couchdb-host:5984)
+  couchdb_user:
+    name: CouchDB User
+    description: CouchDB admin username
+  couchdb_password:
+    name: CouchDB Password
+    description: CouchDB admin password
+  polling_interval:
+    name: Polling Interval
+    description: Seconds between sync polls. Set to 0 to use the real-time _changes feed (recommended)
+  vaults:
+    name: Vaults
+    description: List of Obsidian vaults to sync. Each vault gets its own CouchDB database and encryption passphrase
+    keys:
+      name:
+        name: Vault Name
+        description: Unique identifier for this vault (creates directories under /share/obsidian-livesync/{name}/ and /config/data/{name}/)
+      dbname:
+        name: Database Name
+        description: CouchDB database name for this vault
+      passphrase:
+        name: Passphrase
+        description: Encryption passphrase for this vault (must match the one set in the Obsidian plugin on your devices)

@@ -1,0 +1,34 @@
+name: "Obsidian LiveSync"
+version: "0.1.0"
+slug: "obsidian-livesync"
+description: "Self-hosted Obsidian LiveSync server. Syncs multiple Obsidian vaults with CouchDB in real-time without running Obsidian."
+url: "https://github.com/grunjol/addon-obsidian-livesync"
+arch:
+  - aarch64
+  - amd64
+init: false
+startup: services
+map:
+  - type: share
+    read_only: false
+  - type: config
+    read_only: false
+options:
+  couchdb_uri: "http://localhost:5984"
+  couchdb_user: "admin"
+  couchdb_password: ""
+  polling_interval: 0
+  vaults:
+    - name: "personal"
+      dbname: "obsidian-personal"
+      passphrase: ""
+schema:
+  couchdb_uri: str
+  couchdb_user: str
+  couchdb_password: password
+  polling_interval: int(0,)
+  vaults:
+    - name: str
+      dbname: str
+      passphrase: password
+image: ghcr.io/grunjol/addon-obsidian-livesync
