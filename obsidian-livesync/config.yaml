@@ -1,5 +1,5 @@
 name: "Obsidian LiveSync"
-version: "0.1.0"
+version: "0.1.1"
 slug: "obsidian-livesync"
 description: "Self-hosted Obsidian LiveSync server. Syncs multiple Obsidian vaults with CouchDB in real-time without running Obsidian."
 url: "https://github.com/grunjol/addon-obsidian-livesync"
