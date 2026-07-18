@@ -1,5 +1,5 @@
 name: "rTorrent and Flood"
-version: "0.1.16"
+version: "0.1.17"
 slug: "rtorrent-flood"
 description: "rTorrent and Flood web UI app for Home Assistant"
 url: "https://github.com/grunjol/addon-rtorrent-flood"
@@ -25,11 +25,11 @@ options:
   max_download_speed: 0
   log_level: "info"
 ports:
-  3000/tcp: null
+  3000/tcp: 3000
   49184/tcp: 49184
   49184/udp: 49184
 ports_description:
-  3000/tcp: "Flood UI (use Ingress instead)"
+  3000/tcp: "Flood UI"
   49184/tcp: "rTorrent peers"
   49184/udp: "rTorrent UDP peers"
 schema:
