@@ -1,0 +1,13 @@
+configuration:
+  PORT:
+    name: API Port
+    description: Port for the OmniRoute API and dashboard
+  AUTH_COOKIE_SECURE:
+    name: Secure Auth Cookies
+    description: Set to true when running behind an HTTPS reverse proxy
+  OMNIROUTE_ALLOW_PRIVATE_PROVIDER_URLS:
+    name: Allow Private Providers
+    description: Set to true to connect to local/self-hosted providers (Ollama, vLLM, LM Studio, etc.)
+  OMNIROUTE_MEMORY_MB:
+    name: Memory Limit (MB)
+    description: Maximum Node.js heap memory in megabytes. Increase for heavy usage with large prompts
