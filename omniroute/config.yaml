@@ -1,8 +1,8 @@
 name: "OmniRoute"
-version: "3.8.48"
+version: "0.1.0"
 slug: "omniroute"
 description: "Unified AI proxy. Route any LLM through one endpoint — 250+ providers, 90+ free."
-url: "https://github.com/diegosouzapw/OmniRoute"
+url: "https://github.com/grunjol/addon-omniroute"
 arch:
   - aarch64
   - amd64
@@ -28,4 +28,4 @@ schema:
   AUTH_COOKIE_SECURE: list(true|false)
   OMNIROUTE_ALLOW_PRIVATE_PROVIDER_URLS: list(true|false)
   OMNIROUTE_MEMORY_MB: int
-image: diegosouzapw/omniroute
+image: ghcr.io/grunjol/addon-omniroute
