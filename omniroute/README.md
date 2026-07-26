@@ -40,7 +40,7 @@ Maximum Node.js heap memory in megabytes. Default is `1024` (1 GB). Increase if 
 ## First-time setup
 
 1. Start the addon
-2. Open the OmniRoute dashboard via **Ingress** (OPEN WEB UI button) or directly at `http://homeassistant.local:20128`
+2. Open the OmniRoute dashboard at `http://homeassistant.local:20128`
 3. Login with the default password: `CHANGEME`
 4. **Change the password immediately** from Settings → Security
 5. Go to **Providers** and add your API keys for OpenAI, Anthropic, Google, etc.

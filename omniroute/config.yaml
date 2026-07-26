@@ -1,15 +1,13 @@
 name: "OmniRoute"
-version: "3.8.48.1"
+version: "3.8.48-2"
 slug: "omniroute"
 description: "Unified AI proxy. Route any LLM through one endpoint — 250+ providers, 90+ free."
-url: "https://github.com/grunjol/addon-omniroute"
+url: "https://github.com/diegosouzapw/OmniRoute"
 arch:
   - aarch64
   - amd64
 init: false
 startup: services
-ingress: true
-ingress_port: 20128
 map:
   - type: addon_config
     read_only: false
@@ -23,9 +21,11 @@ options:
   AUTH_COOKIE_SECURE: "false"
   OMNIROUTE_ALLOW_PRIVATE_PROVIDER_URLS: "false"
   OMNIROUTE_MEMORY_MB: 1024
+  OMNIROUTE_BASE_PATH: "/api/hassio_ingress/omniroute"
 schema:
   PORT: port
   AUTH_COOKIE_SECURE: list(true|false)
   OMNIROUTE_ALLOW_PRIVATE_PROVIDER_URLS: list(true|false)
   OMNIROUTE_MEMORY_MB: int
+  OMNIROUTE_BASE_PATH: str
 image: ghcr.io/grunjol/addon-omniroute
