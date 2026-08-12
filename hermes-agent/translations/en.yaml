@@ -53,6 +53,13 @@ configuration:
       When the API server is enabled, surrounding whitespace is ignored and the remaining value must
       contain at least 16 printable ASCII characters, cannot be a common placeholder, and cannot
       contain a single-quote or backslash character or dotenv interpolation syntax.
+  apply_fixes:
+    name: Apply Container Fixes
+    description: >-
+      Apply dynamically-generated container fixes at startup, before the add-on
+      services start. These patches fix known issues in the container image (for
+      example excessive CPU usage). Turn this off only if the fixes cause
+      problems; the add-on will then boot with the stock, unpatched behavior.
   env_vars:
     name: Hermes .env Variables
     description: >-
