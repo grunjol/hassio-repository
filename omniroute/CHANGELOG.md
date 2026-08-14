@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.8.49.6
+
+- opencode-go quota: hydrate the domain cache from persisted snapshots on cold start (before the first background refresh)
+
 ## 3.8.49.5
 
 - Fix quota cache refresh dropping apikey connections (opencode-go) every 60s — the root cause that left opencode-go quota empty and routing falling back to the dead public endpoint
