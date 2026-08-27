@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.8.50.0
+
+- Upstream base bumped to `v3.8.50` (tag `6f5d4e00`)
+- Dropped `01-opencode-quota-cache.patch` — superseded upstream by #11234 (dashboard snapshot bridge in opencode-go preflight, with extra guards)
+- Dropped `02-pr-9353.patch` — PR #9353 (reset-window fix) merged upstream as `696435efa`
+- Renumbered remaining patches: `01-reset-aware-monthly.patch` (was 03), `02-quota-refresh-apikey.patch` (was 04) — both still apply cleanly against v3.8.50 (verified with dry-run + real apply, no duplicates)
+
 ## 3.8.49.6
 
 - opencode-go quota: hydrate the domain cache from persisted snapshots on cold start (before the first background refresh)

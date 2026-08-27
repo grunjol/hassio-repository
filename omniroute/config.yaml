@@ -1,5 +1,5 @@
 name: "OmniRoute"
-version: "3.8.49.6"
+version: "3.8.50.0"
 slug: "omniroute"
 description: "Unified AI proxy. Route any LLM through one endpoint — 250+ providers, 90+ free."
 url: "https://github.com/diegosouzapw/OmniRoute"
