@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.8.50.1
+
+- reset-aware scoring: optional per-combo `resetAwareMonthlyMode` for the monthly window
+  - `"pressure"` (default, unchanged): remaining quota + reset pressure — keeps draining the account whose reset is closest
+  - `"pace"` (new, opt-in): depletion pace (remaining quota ÷ window time left) — consumes first the account with the most quota per day of runway, so accounts deplete evenly instead of one being drained to zero while the other idles
+- Applied as `03-reset-aware-monthly-pace.patch` (on top of `01-reset-aware-monthly.patch`, same file — order matters)
+
 ## 3.8.50.0
 
 - Upstream base bumped to `v3.8.50` (tag `6f5d4e00`)
