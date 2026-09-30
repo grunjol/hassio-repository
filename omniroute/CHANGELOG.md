@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.8.51.0
+
+- Upstream base bumped to `v3.8.51` (tag `c1e30b76`)
+- Upstream v3.8.51 replaced the opencode cookie/dashboard scraper with the official quota API (`GET /zen/go/v1/usage`), so no scraper patch is needed anymore
+- Rebased all patches onto v3.8.51 (no behavior change for existing combos):
+  - `01-reset-aware-monthly.patch` — re-adds the monthly window to reset-aware scoring (session/weekly/monthly, default 25/45/30) on top of upstream's refactored window helpers; adds `resetAwareMonthlyWeight`
+  - `02-quota-refresh-apikey.patch` — still required: `getQuotaCache` misses persisted snapshots, and `refreshEntry` deletes non-oauth entries every background tick
+  - `03-reset-aware-monthly-pace.patch` — opt-in per-combo `resetAwareMonthlyMode` (pressure/pace) for the monthly window
+- New `04-provider-quota-window-aliases.patch` — maps provider-native window names to canonical structural windows:
+  - command-code: `credits` → monthly, `five_hour` → 5h window
+  - opencode: `mcp_monthly` treated as the monthly window on the account-level paths
+- Dockerfile updated to match upstream's v3.8.51 build: `wreq-js` replaces `tls-client-node`, `better-sqlite3 --force_build` + native-binding check, `npm ci --include=optional`, and `OMNIROUTE_BUILD_WORKERS=2` to avoid CI OOM
+
 ## 3.8.50.1
 
 - reset-aware scoring: optional per-combo `resetAwareMonthlyMode` for the monthly window
