@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.8.51.1
+
+- Fix command-code credits showing `0 / <remaining>` instead of the real spend: `/alpha/billing/subscriptions` and the default (no-`since`) `/alpha/usage/summary` now take ~16s on larger accounts, beyond the fetcher's 10s timeout, so the plan/period/spend enrichment soft-failed and the credits total collapsed to the remaining pools
+- Applied as `05-command-code-slow-enrichments.patch`: 30s timeout for those two calls and in-process caching of orgId (6h) + subscription period (15min), so per-minute refreshes stay fast; period-scoped summary keeps its fast path
+
 ## 3.8.51.0
 
 - Upstream base bumped to `v3.8.51` (tag `c1e30b76`)
