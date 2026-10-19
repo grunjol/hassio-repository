@@ -1,5 +1,16 @@
 # Changelog
 
+## 3.8.52.0
+
+- Upstream base bumped to `v3.8.52` (tag `ad6f33f6`)
+- Rebased all five patches onto v3.8.52:
+  - `01-opencode-monthly-alias.patch` — reduced to the opencode `mcp_monthly` → monthly alias. Upstream now ships its own reset-aware monthly window (fixed 25% blend, session 0.35 / weekly 0.65), so the fork no longer re-implements it
+  - `02-quota-refresh-apikey.patch` — unchanged behavior: hydrate `getQuotaCache` from persisted SQLite snapshots and keep apikey usage-capable providers alive across background refreshes
+  - `03-reset-aware-monthly-pace.patch` — now only adds the opt-in per-combo `resetAwareMonthlyMode` (`pressure`/`pace`) on top of upstream's weights and monthly blend. `resetAwareMonthlyWeight` is no longer used (saved combos that set it are ignored, not rejected)
+  - `04-provider-quota-window-aliases.patch` — unchanged (command-code `credits`→monthly, `five_hour`→5h)
+  - `05-command-code-slow-enrichments.patch` — rebased onto upstream's proxy-aware command-code fetcher; keeps the 30s timeout + org/subscription caching that fixes the credits row showing `0 / remaining` instead of the real spend
+- Upstream v3.8.52 does not fix the command-code credits spend on its own: its only fetcher change is routing through the connection proxy
+
 ## 3.8.51.1
 
 - Fix command-code credits showing `0 / <remaining>` instead of the real spend: `/alpha/billing/subscriptions` and the default (no-`since`) `/alpha/usage/summary` now take ~16s on larger accounts, beyond the fetcher's 10s timeout, so the plan/period/spend enrichment soft-failed and the credits total collapsed to the remaining pools
