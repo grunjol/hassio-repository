@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.8.52.1
+
+- Add `06-models-dev-commandcode-map.patch`: models.dev keys the provider `commandcode` while OmniRoute uses `command-code` (alias `cmd`), so a models.dev sync wrote pricing/capabilities under a key no request reads and every command-code call logged $0 in analytics. The map now writes under both ids; the new unit test covers the transform
+- No runtime change while the models.dev sync stays disabled (default). The live command-code pricing comes from the user table (`namespace=pricing`), which still takes precedence
+- Upstream v3.8.52 is unchanged; this is a fork-only patch on top of the rebase from 3.8.52.0
+
 ## 3.8.52.0
 
 - Upstream base bumped to `v3.8.52` (tag `ad6f33f6`)
