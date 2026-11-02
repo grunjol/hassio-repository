@@ -1,6 +1,69 @@
 # Changelog
 
+All notable changes to the Hermes Agent Home Assistant add-on are documented here.
+
+The format follows the spirit of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions match the add-on `version` in `config.yaml`.
+
 ## [Unreleased]
+
+## [1.3.10.1] - 2026-11-02
+
+### Changed
+
+- Merge upstream v1.3.8: stable source channels. Fresh official installs with an empty `git_ref`
+  clone the latest verified published Stable release, startup updates honor the saved channel
+  across every configured profile, and an unchosen Stable default never downgrades a newer
+  checkout.
+- Merge upstream v1.3.9: keep an existing official checkout startable when a source lookup or
+  fetch fails before applying an update, and download the pinned Go archive with bounded retries
+  plus official SHA-256 verification before extraction.
+- Merge upstream v1.3.10: validate the installed Hermes runtime against the persistent primary
+  home instead of a fresh scratch directory, ignoring a saved interactive profile selection
+  during the probe.
+- Build the image with Node.js 26 (`https://deb.nodesource.com/setup_26.x`, publishes
+  `nodejs 26.13.0-1nodesource1`) instead of Node.js 22. Hermes v0.22.6 declares
+  `"engines": {"node": ">=26"}` and ships `.npmrc` with `engine-strict=true`, so every
+  `npm install` in the tree — the `ui-tui` workspace and the dashboard `web/` build — aborts
+  against Node 22 with `EBADENGINE`, breaking the update path and the `run.sh` dashboard rebuild.
+  `agent-browser` stays installed (it declares `engines.node >=24`).
+- Keep the fork's entrypoint contract: `/entrypoint-local.sh` still applies container-fixes
+  before `exec /run.sh`; upstream adds `source-channel.py` and the verified Go download.
+
+### Verified
+
+- Local regression suite: 194 tests, 1 failure, 1 skipped. The failure is the pinned upstream
+  defect (`test_gateway_supervisor_rejects_changed_parent_before_launch`), which fails identically
+  on a pristine upstream v1.3.10 checkout.
+- `/run.sh` patch compatibility (container-fixes `fix_run_sh`): all remaining patches (5c, 5d, 5e,
+  5f, 5h, 5i) apply to the v1.3.10 `run.sh`, are idempotent, and `bash -n` stays clean. The
+  dashboard-start patches 5a/5b/5g stay retired since v1.3.5.
+- Container and Home Assistant Supervisor validation of this release is still pending; the image
+  is built by CI on release.
+
+## [1.3.10] - 2026-10-24
+
+### Fixed
+- Validate the installed Hermes runtime against the persistent primary home instead of a fresh scratch directory. This avoids repeatedly scaffolding a separate runtime during startup checks. Ignore a saved interactive profile selection during the probe, matching the add-on-managed gateway's fixed home. Thanks to @alreli for #60.
+
+## [1.3.9] - 2026-10-14
+
+### Fixed
+- Keep an existing official checkout available when a source lookup or fetch fails before applying an update. Avoid fetching the entire tag tree during startup. Saved-channel conflicts, invalid release identities and unsafe source changes remain errors. Addresses #56.
+- Download the pinned Go archive with bounded retries and verify it before extraction so an interrupted transfer cannot install a partial archive. Addresses #57.
+
+### Verification
+- Isolated discovery and one targeted retry: 190 passed, 3 skipped (193 total), including startup timeout/failed-fetch regressions and the real curl/tar Go RUN expression against local HTTP. An unchanged timing-sensitive Desktop test failed once in discovery, then passed separately on the candidate and baseline. Exact pinned Hermes v0.21.7 native source resolver, shell syntax, Python AST, YAML and diff checks passed. Container and Home Assistant Supervisor validation have not been performed.
+
+## [1.3.8] - 2026-10-12
+
+### Fixed
+- Fresh official installs with an empty `git_ref` select a verified published stable release rather than the moving default branch. A failed release lookup stops before cloning.
+- For an existing official blank-ref checkout with `auto_update: true`, resolve the single shared source target through Hermes' native source-channel API and apply it before the add-on's existing Python/venv installation. Read saved per-install channel choices from every configured profile without changing their config files; conflicting choices stop startup. An unchosen stable default only moves forward. Git refuses updates that would overwrite local source edits.
+- Preserve custom repository URLs and explicit branch/tag refs, including their prior branch-pull behavior. New clones no longer immediately pull a second time.
+
+### Verified
+- Local focused RED/GREEN source-selection regressions; complete isolated add-on unittest discovery: 168 passed, 3 skipped (171 total). Exact pinned Hermes v0.21.7 source resolver exercised against local Git and mocked HTTPS. Shell syntax, YAML, and diff checks passed. No add-on container or Home Assistant Supervisor smoke has been performed.
+- Older official checkouts without the native source-channel API use the same verified published-release selector for Stable, or follow `main` when that channel was explicitly saved. An unavailable legacy non-Stable channel is held with an actionable warning while startup continues. No source update runs when the GitHub release cannot be verified.
 
 ## [1.3.7.1] - 2026-10-09
 
@@ -33,11 +96,6 @@
   they patched with the real launcher script. Patches 5b, 5c, 5d, 5e, 5f, 5h and 5i still apply.
 - Container and Home Assistant Supervisor restart/update verification of this release is still
   pending (see the handoff README).
-
-
-All notable changes to the Hermes Agent Home Assistant add-on are documented here.
-
-The format follows the spirit of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions match the add-on `version` in `config.yaml`.
 
 ## [1.3.7] - 2026-10-05
 
