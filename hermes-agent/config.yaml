@@ -1,5 +1,5 @@
 name: Hermes Agent
-version: "1.3.10.1"
+version: "1.3.10.2"
 slug: hermes-agent
 image: ghcr.io/grunjol/addon-hermes-agent
 description: "The self-improving AI agent built by Nous Research. Home Assistant add-on by Wolfram Ravenwolf, fork by grunjol with pre-built images and container fixes."
@@ -8,6 +8,12 @@ arch:
   - amd64
   - aarch64
 init: false
+# Supervisor API access, scaled to what an operator needs from the agent:
+# list installed apps and their state/version, and restart or update them.
+# `default` only exposes the *info* endpoints; `manager` is the lowest role
+# the Supervisor documents as covering the app list and lifecycle.
+hassio_api: true
+hassio_role: manager
 startup: application
 boot: auto
 ingress: true

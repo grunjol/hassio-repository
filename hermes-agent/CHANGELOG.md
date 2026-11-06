@@ -6,6 +6,24 @@ The format follows the spirit of [Keep a Changelog](https://keepachangelog.com/e
 
 ## [Unreleased]
 
+## [1.3.10.2] - 2026-11-06
+
+### Added
+
+- Supervisor API access: `hassio_api: true` with `hassio_role: manager` in `config.yaml`. The agent
+  can now list installed apps with their state and version, read their stats, and start, stop,
+  restart, rebuild or update them. Before this, every Supervisor endpoint except `/info` answered
+  `403: Forbidden`, so an operator could not inventory the installed apps or audit them for a
+  published CVE. `default` is not enough for this: the Supervisor's role map grants that role only
+  `.../info` paths, while the app list matches the `manager` role.
+- Scope, stated precisely: `manager` is broader than the inventory use case. The same role map also
+  grants uninstall and option changes under `/addons/<slug>/*` (except `security`), `/backups.*`,
+  `/store.*`, `/docker/*`, `/cli/*`, `/supervisor/*`, `/security/*`, `/host/*`, `/network/*` and
+  `/os/*`. Only the data-disk wipe, the host SSH `authorized_keys` writes and protection-mode
+  changes are reserved to `admin`.
+- `README.md`: Security Model entry describing the new Supervisor access, its full scope, the
+  one-point security rating cost of the `manager` role, and how to opt out (`hassio_api: false`).
+
 ## [1.3.10.1] - 2026-11-02
 
 ### Changed
