@@ -1,5 +1,18 @@
 # Changelog
 
+## 3.8.53.0
+
+- Upstream base bumped to `v3.8.53` (tag `599a2d83`, released 2026-11-06)
+- All six patches still apply; **none required rework** — audited against the tag:
+  - `01-opencode-monthly-alias` — applies with offset (upstream exported `parseResetTimeMs` / `getQuotaWindowEntries` and added `fractionReported`, none of which touch the alias)
+  - `02-quota-refresh-apikey` — **regenerated against v3.8.53** (the old copy applied with fuzz 1-2 after `quotaCache.ts` grew; the new one applies exactly and produces a byte-identical result). v3.8.53 added the read-through accessor `getQuotaCacheOrSnapshot` (#18541) but did NOT switch `getQuotaCache` to it, and `refreshEntry` still drops non-oauth connections — the bug this patch fixes is alive
+  - `03-reset-aware-monthly-pace` — applies with offset; the check for `fractionReported === false` added in v3.8.53 flows through `monthlyRemaining` unchanged
+  - `04-provider-quota-window-aliases` — applies with offset; upstream maps `session`/`session (5h)`/`code_5h` but still not command-code's `five_hour`/`credits`
+  - `05-command-code-slow-enrichments` / `06-models-dev-commandcode-map` — their files are untouched between v3.8.52 and v3.8.53, so both apply exactly
+- Nothing in `v3.8.52..v3.8.53` reverses a local fix: the release is 5 commits (release bump + CI/Docker/Electron), and the only logic drift in our files is `quotaCache.ts` (+401 lines: snapshot read-through accessor, Codex-specific hydration, `isQuotaExhaustedForRequest` now hydrates) and `quotaScoring.ts` (+202: helper exports, `fractionReported`, a new expiry-related block)
+- Dockerfile: pin the base image to `node:26.12.1-trixie-slim` (upstream's CA fix — 26.12.0 still trusted the compromised eMudhra intermediates) and copy the new `packages/ui-kit` (plus the existing `packages/browser-pool`) workspace manifests before `npm ci`, so npm materializes the workspace links that the v3.8.53 build imports
+- Verified with the handoff `verify.sh`: all six patches apply in order on the tag, with the expected symbol counts and no double application; the regenerated patch 02 applies exactly (no fuzz)
+
 ## 3.8.52.1
 
 - Add `06-models-dev-commandcode-map.patch`: models.dev keys the provider `commandcode` while OmniRoute uses `command-code` (alias `cmd`), so a models.dev sync wrote pricing/capabilities under a key no request reads and every command-code call logged $0 in analytics. The map now writes under both ids; the new unit test covers the transform
